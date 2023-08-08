@@ -8,15 +8,20 @@
 html {
 	background: url("/assets/img/background.gif");
 }
-
+/*border: 4px dashed var(--color-principal);**/
 body {
-	background-color: rgba(0, 0, 0, 0.8);
-	color: rgba(255, 255, 255, 0.7);
-	padding: 5px;
-	margin: auto;
-	width: 80%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 5px;
+    margin: auto;
+    width: 90%;
 	border: 4px dashed var(--color-principal);
-	font-family: "Open Sans";
+    font-family: "Open Sans";
+    box-sizing: border-box; /* Agregar esta propiedad para incluir padding en el ancho */
+}
+
+main {
+    padding: 5px;
 }
 
 header,
@@ -44,15 +49,6 @@ footer {
 	}
 }
 
-.logodarknet {
-	font: 10px/5px monospace;
-}
-
-@media (max-width: 500px) {
-	.logodarknet {
-		font: 4px/2px monospace;
-	}
-}
 
 .logo {
 	font: 5px/2.5px monospace;
