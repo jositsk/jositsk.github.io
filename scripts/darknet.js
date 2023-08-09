@@ -9,15 +9,17 @@ document.addEventListener("DOMContentLoaded", function() {
   
     // Handle form submission
     passwordForm.addEventListener("submit", function(event) {
-      event.preventDefault();
-      const password = "3005"; // Replace with the actual password
+        event.preventDefault();
+        const password = "3005"; // Replace with the actual password
   
-      if (passwordInput.value === password) {
-        modal.style.display = "none";
-        // Show the main content
-        mainContent.style.display = "block";
-      } else {
-        alert("Incorrect password. Please try again.");
-      }
+        if (passwordInput.value === password) {
+            modal.style.display = "none";
+            // Show the main content
+            mainContent.style.display = "block";
+        } else {
+            // Redirect to the "/home" page
+            alert("Contraseña incorrecta. Redirigir a Home");
+            window.location.href = "/";
+        }
     });
-  });
+});
