@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marii | Games>Tetris.js</title>
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/style/style.css">
+</head>
+<body>
+    <header>
+        <pre class="ascii logo" style="color: rgb(201, 79, 8);">
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                        
+                       ^oWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWo^                       
+                       ^8@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@8^                       
+                       ^W@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@W^                       
+                       ^W@@@8WWWWWWWWWW8@@@@8WWWWWWWWWW8@@@@8WWWWWWWWWW8@@@W^                       
+                       ^W@@8I^^^^^^^^^^I8@@8I^^^^^^^^^^I8@@8I^^^^^^^^^^I8@@W^                       
+                       ^W@@W`          `W@@W`          `W@@W`          `W@@W^                       
+                       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^                       
+                       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^                       
+                       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^                       
+                       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^                       
+                       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^                       
+                       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^                       
+                       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^                       
+                       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^                       
+                       ^W@@W`          `W@@W`          `W@@W`          `W@@W^                       
+                       ^W@@8I^^^^^^^^^^I8@@8I^^^^^^^^^^I8@@8I^^^^^^^^^^I8@@W^                       
+                       ^W@@@8WWWWWWWWWW8@@@@8WWWWWWWWWW8@@@@8WWWWWWWWWW8@@@W^                       
+                       ^W@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@W^                       
+                       ^8@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@8^                       
+                       ^oWWWWWWWWWWWWWW8@@@@8WWWWWWWWWW8@@@@8WWWWWWWWWWWWWWo^                       
+                        ^^^^^^^^^^^^^^^I8@@8I^^^^^^^^^^I8@@8I^^^^^^^^^^^^^^^                        
+                                       `W@@W`          `W@@W`                                       
+                                       ^W@@W^          ^W@@W^                                       
+                                       ^W@@W^          ^W@@W^                                       
+                                       ^W@@W^          ^W@@W^                                       
+                                       ^W@@W^          ^W@@W^                                       
+                                       ^W@@W^          ^W@@W^                                       
+                                       ^W@@W^          ^W@@W^                                       
+                                       ^W@@W^          ^W@@W^                                       
+                                       ^W@@W^          ^W@@W^                                       
+                                       ^W@@W`          `W@@W^                                       
+        ^^^^^^^^^^^^^^^^^^^^           ^W@@8I^^^^^^^^^^I8@@W^           ^^^^^^^^^^^^^^^^^^^^        
+       ^oWWWWWWWWWWWWWWWWWWo^          ^W@@@8WWWWWWWWWW8@@@W^          ^oWWWWWWWWWWWWWWWWWWo^       
+       ^8@@@@@@@@@@@@@@@@@@8^          ^W@@@@@@@@@@@@@@@@@@W^          ^8@@@@@@@@@@@@@@@@@@8^       
+       ^W@@@@@@@@@@@@@@@@@@W^          ^8@@@@@@@@@@@@@@@@@@8^          ^W@@@@@@@@@@@@@@@@@@W^       
+       ^W@@@8WWWWWWWWWW8@@@W^          ^oWWWWWWWWWWWWWWWWWWo^          ^W@@@8WWWWWWWWWW8@@@W^       
+       ^W@@8I^^^^^^^^^^I8@@W^           ^^^^^^^^^^^^^^^^^^^^           ^W@@8I^^^^^^^^^^I8@@W^       
+       ^W@@W`          `W@@W^                                          ^W@@W`          `W@@W^       
+       ^W@@W^          ^W@@W^                                          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^                                          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^                                          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^                                          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^                                          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^                                          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^                                          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^                                          ^W@@W^          ^W@@W^       
+       ^W@@W`          `W@@W`                                          `W@@W`          `W@@W^       
+       ^W@@8I^^^^^^^^^^I8@@8I^^^^^^^^^^^^^^^            ^^^^^^^^^^^^^^^I8@@8I^^^^^^^^^^I8@@W^       
+       ^W@@@8WWWWWWWWWW8@@@@8WWWWWWWWWWWWWWo^          ^oWWWWWWWWWWWWWW8@@@@8WWWWWWWWWW8@@@W^       
+       ^W@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@8^          ^8@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@W^       
+       ^W@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@W^          ^W@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@W^       
+       ^W@@@8WWWWWWWWWW8@@@@8WWWWWWWWWW8@@@W^          ^W@@@8WWWWWWWWWW8@@@@8WWWWWWWWWW8@@@W^       
+       ^W@@8I^^^^^^^^^^I8@@8I^^^^^^^^^^I8@@W^          ^W@@8I^^^^^^^^^^I8@@8I^^^^^^^^^^I8@@W^       
+       ^W@@W`          `W@@W`          `W@@W^          ^W@@W`          `W@@W`          `W@@W^       
+       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^       
+       ^W@@W`          `W@@W`          `W@@W`          `W@@W`          `W@@W`          `W@@W^       
+       ^W@@8I^^^^^^^^^^I8@@8I^^^^^^^^^^I8@@8I^^^^^^^^^^I8@@8I^^^^^^^^^^I8@@8I^^^^^^^^^^I8@@W^       
+       ^W@@@8WWWWWWWWWW8@@@@8WWWWWWWWWW8@@@@8WWWWWWWWWW8@@@@8WWWWWWWWWW8@@@@8WWWWWWWWWW8@@@W^       
+       ^W@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@W^       
+       ^W@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@W^       
+       ^W@@@8WWWWWWWWWW8@@@@8WWWWWWWWWW8@@@@8WWWWWWWWWW8@@@@8WWWWWWWWWW8@@@@8WWWWWWWWWW8@@@W^       
+       ^W@@8I^^^^^^^^^^I8@@8I^^^^^^^^^^I8@@8I^^^^^^^^^^I8@@8I^^^^^^^^^^I8@@8I^^^^^^^^^^I8@@W^       
+       ^W@@W`          `W@@W`          `W@@W`          `W@@W`          `W@@W`          `W@@W^       
+       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^       
+       ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^          ^W@@W^       
+       ^W@@W`          `W@@W`          `W@@W`          `W@@W`          `W@@W`          `W@@W^       
+       ^W@@8I^^^^^^^^^^I8@@8I^^^^^^^^^^I8@@8I^^^^^^^^^^I8@@8I^^^^^^^^^^I8@@8I^^^^^^^^^^I8@@W^       
+       ^W@@@8WWWWWWWWWW8@@@@8WWWWWWWWWW8@@@@8WWWWWWWWWW8@@@@8WWWWWWWWWW8@@@@8WWWWWWWWWW8@@@W^       
+       ^W@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@W^       
+       ^8@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@8^       
+       ^oWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWo^       
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        
+                        
+        </pre>
+        <pre class="ascii name">
+████████╗███████╗████████╗██████╗ ██╗███████╗
+╚══██╔══╝██╔════╝╚══██╔══╝██╔══██╗██║██╔════╝
+   ██║   █████╗     ██║   ██████╔╝██║███████╗
+   ██║   ██╔══╝     ██║   ██╔══██╗██║╚════██║
+   ██║   ███████╗   ██║   ██║  ██║██║███████║
+   ╚═╝   ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚══════╝
+                                                                    
+        </pre>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/pages/games/tetris.html">Tetris</a></li>
+            <li><a href="/pages/games/snake.html">Snake</a></li>
+            <li><a href="/pages/games/tictactoe.html">TicTacToe</a></li>
+
+        </ul>
+    </nav>
+
+    <main>
+
+    </main>
+    
+    <footer>
+        <h3>Desarrollado por Josias Olguin - 2023/08</h3>
+    </footer>
+    <script src="/scripts/tetris.js"></script>
+</body>
+</html>

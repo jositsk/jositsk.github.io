@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marii | Home</title>
     <link rel="stylesheet" href="/assets/style/style.css">
+    <link rel="stylesheet" href="/assets/style/modal-darknet.css">
     <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
 </head>
 
@@ -97,7 +98,18 @@
         </ul>
     </nav>
 
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+          <h2 style="text-align: center;">Enter Password</h2>
+          <form id="passwordForm">
+            <input type="password" id="passwordInput" placeholder="Code">
+            <button type="submit">Enter</button>
+          </form>
+        </div>
+      </div>
+
     <main>
+
         <h1>$ cat darknet-links.txt</h1>
         <p>
         <ul>
@@ -152,6 +164,7 @@
             
             <li>Technology:
                 <ul>
+                    
                     <li>Venom Software: <a href="">http://hjjrzhmfu3komcxz7eob4qylcml7wwzhh6ofgedaubxiaxv24vzgccqd.onion/</a></li>
                     <li>White Rabbit - Hacking Services: <a href="">http://wrabbitzqridxnvqevem4hayi5wkbeauqbt66v4dabm5y3gmddgbcqyd.onion/</a></li>
                     <li>DEF CON Home: <a href="">http://g7ejphhubv5idbbu3hb3wawrs5adw7tkx7yjabnf65xtzztgg4hcsqqd.onion/</a></li>
@@ -171,6 +184,8 @@
         <h3>Desarrollado por Josias Olguin - 2023/08</h3>
 
     </footer>
+
+    <script src="/scripts/darknet.js"></script>
 </body>
 
 </html>

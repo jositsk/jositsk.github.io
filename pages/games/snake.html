@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marii | Games>Snake.js</title>
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/style/style.css">
+</head>
+
+<body>
+    <header>
+        <pre class="ascii logo" style="color: rgb(120, 218, 39);">
+                                     I[]]]]]]]]]]]+~~][[^                                           
+                                     l1{{{{{{{{{{{-__}{{^                                           
+                                     l{{{{{{{{{{{}___}{{^                                           
+                            ~-___-~ii-{{{{{{{{{{{}___}{{]_-~ii+-___-!                               
+                            ]1{{{1]__[{{{{{{{{{{{}___}{{{{1]__[1{{{1_                               
+                            -{{{{{]__]{{{{{{{{{{{}___}{{{{{]__[{{{{{+                               
+                        .i~~}{{{{{}[[]]][{{{{{{{{{[[[}{{{{{]__[{{{{{[~~!                            
+                        '}1{{{{{{{{{{[__]{{{{{{{{{{{{{{{{{{]__[{{{{{{{1]                            
+                        .}{{{{{{{{{{{]__]{{{{{{{{{{{{{{{{{{]__]{{{{{{{{-                            
+                     .l!!][[}{{{{{{{{}[[}{{{{{{{{{{{{{{{{{{}[[}{{{{{{{{[!!!!!l.                     
+                     `{1{___}{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{11111{`                     
+                     `}{}___}{{{{{}}}}}}}}}}}}}}}}{{{{{{{{{{{{{{{{11111{{{{{{}`                     
+                     `}{}]]][[[}{{)((((((((((((((({{{{{{{{{{{{{{{]~~~~~+{{{{{}`                     
+                     `}{{{{{___}{}\jjjjjjjjjjjjjjf1}{{{{{{{{{{{{{i     '{{{{{}`                     
+                     '}{{{{}___}{}\jfjrrrrrrrrrrrj{}}}}}{{{{{{{{{i     '{{{{{}`                     
+                  .,,;}{{{{}---}{}\jj\111111111111)))))){{{{{{{{{i  `__-{{{{{}`  !__,               
+                  ,1{{{{{{{{{{{{{}\jr+           .tjjjjj)}{{{{{{{i  +@@a1}{{{}`  O@@)               
+                  ,{{{{{{{{{{{{}}}\jx_           'trjjjj)}}}}}{{{i  +@@o1}{{{}`  Z@@)               
+                  ,}}}{{{{{{{{{11)(\/i           ')\||||)111111{{i  +@@a1}{{{}`  O@@)               
+                  `__-}{{{{{{{{/jr!                     1jfffj|}{i  +@@a1}{{{}`  O@@)               
+                  `__-}{{{{{{}{/jr!                     1rjjfj|}{i  +@@a1}{{{}`  O@@)               
+                  `_--}}}{{{{{{|tfl                     }ftffj|}{i  +@@a1}{{{}`  O@@)               
+                  ,}}}___}{{/tfI''                      .'.[rj|}{i  +@@a1}{{{}`  O@@)               
+                  ,{{}___}{{tjr;                           ]rj|}{i  +@@o1}{{{}`  Z@@)               
+                  ,{{}__-}{{tjj;                           ]rj|}{i  +%%h1}{{{}`  0881               
+                  ,{{}}}}{{{tjj;                           ]rj|}{}--[\\|{{{{{{]--!;;`               
+                  ,{{{{{{{{{tjj;                           ]rj|}{{{{{}}}{{{{{{{{1^                  
+                  ,11{{{{{{{tjr;                           [xr|}{{{{{{{{{{{{{{{{{,                  
+                  .,,;}{{{{{)))11);                        ^;;-t/|}{{{{{{{{{{{{{{,                  
+                     '}{{{{{}}}trx!                           +rj\}{{{{{{{{{{{{{{,                  
+                     `}{{{{{{{{/jr!                           _xr/}}}}}}}}}}}}111,                  
+                     `}{}]]]}{{/jr!                           ^!!_/\\\\\\\\\\\!;;'                  
+                     `}{}___}{{/jr!                              !rjjjjjjjjjjt^                     
+                     `}{}___}{{/jr!                              !xrrrrrrrrrrj^                     
+                     '][[]][}{{/jr!                              ^_+++++++++++'                     
+                     '+__}{{{{{/jr!                                                                 
+                     '+__}{{{{{/jr!                                                                 
+                     '-]]}{{{{{(\\_!i^                                                              
+                     `}{{{{{{{{}}}/rx_                                                              
+                     `{1{{{{{{{{{{\jr+                                                              
+                     '++_}{{{{{}}[\jr+                                                              
+                        '}{{{{{-__|jr+                                                              
+                        '}{{{{{]__|jr+                                                              
+                        ._--}}}]-_(tf_^^'                                        :IIIII^            
+                           .i-_}{}{{{(fj]                                        QWWWWWf            
+                            i-_}{{{{}|jr[                                        Z@@@@@r            
+                            ~-_}{{{{}|fj[''.                                  `^^m@@Mo*/            
+                            -{}}{{{{{{1{)/t}                                  O*o%@@|^^'            
+                            ]{{{{{{{{{{}(jr)                                  k@@@@@)               
+                            -}}}{{{{{{{}(jr1                   ........       b@@8WW1               
+                            '``_{{{{{[-_1jr1                  _vnnnnnnv\      b@@1;I`               
+                               +1{{{{[__1jr1                  }0CCCCCJQx.     k@@+                  
+                               _{{{{{[__1jr1                  [QJJJJJJJr      dBB_                  
+                               `,^i]-]}}}))11)]            -jtfjjjjjxJJXftfC0C[++^                  
+                                  I-_]{{{}})rr\            |0Qn\//\\jJJJCCQ@@BI                     
+                                  l-_[{{{{})fj|            (QJx\//\\jJJJJYC%@8I                     
+                                  `,,i{{{{})fj|         -|(trrf//fvncJJJJYC%@%j(((((((|i            
+                                     l{{{{})fj|         j0Qr\\//\rJJJJJJJYC%@BOCQQQQQQ0{            
+                                     l{{{{{)jj|         tCJr\//\\rJJJJJJYYJ%@BQXYYJJJJC[            
+                                     l{{}]]}||)+_i.  _}}vJJr\/fnxcJJJJJJmmwB@@pmmCYJJJJf[}i         
+                                     l{{[__-{}1rrt' .v0QJJJr\\nCJJJJJJYQ*##@@@M##OYJJJJCQO/         
+                                     l1{[__-{}1fj/' .nJJJJJr\\xJJJJJJJYQ**#@@@M##OYJJJJJJC|         
+                                     I}[[]][{}1fj/' .nJJJJJvrrcJJJJJJJYCddbW88bddQYJJJJJJJr[}+      
+                                     :__]{{{{}1fj/' .nJJJJJJJJJJJJJJJJJJYYJo*oQYYJJJJJJJJYOhaJ      
+                                     :__]{{{{}1fj/' .nJJJJJJJJJJJJJJJJJJJYCo#*QYJJJJJJJJJY0dbX      
+                                     ;]-[{{{{}1fj/' .nJJJJJJJJJJJJJJJJJJJJJbkbCYJJJJJJJJJY0dbX      
+                                     l1{{{{{{}1fj/' .nJJJJJJJJJJJJJJJJJJJJJYYYJJJJJJJJJJJY0dbX      
+                                     l{{{{{{{}1fj/' .nJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJY0dbX      
+                                  .`'!{{{{{{{}1fj/' .nJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJY0dbX      
+                                  I_+]{{{{{{{}1fj/' .nJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJY0dbX      
+                                  l-_]{{{{{{{}1fj/' .nJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJY0dbX      
+                               .''l-_]}}}{{{{}1fj/' .nJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJY0dbX      
+                               +{}}}}[__]{{{{}1fj/' .nJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJY0dbX      
+                               _1{{{{[__]{{{{}1fjt' .nCJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJY0bkY      
+                               +{{{{{]__]{{{{}1tf\' .rYXYJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJQwpz      
+                        .-[]~~i[{{{{{}}}}{{{{{]^^^   ^,,jCJJJJJJJJJJJJJJJJJJJJJJJJJJJJYOpdn;;,      
+                        '}{{-__}{{{{{{{{{{{{{{-         tCJJJJJJJJJJJJJJJJJJJJJJJJJJJJYObkr         
+                        .[{}___}{{{{{{{{{{{{}{-         tCJJJJJJJJJJJJJJJJJJJJJJJJJJJJYOdkr         
+               ,--+!!i---}{{}[}]--}{{{{{{{}1/t1         tCJJJJJJJJJJJJJJJJJJJJJJJJJJJJYOdkr         
+               ;11}_--{{{{{{{{{]__[{{{{{{{})jr|         tCJJJJJJJJJJJJJJJJJJJJJJJJJJJJYOdkr         
+               ;{{[__-{{{{{{{{{-__[{{{{{}}})jr|         fQCCCCJYYYYYYJJJJJJJJJJJJYYYYYYZkhx         
+~~~~~~~~~~~~~~~_{{}[[[]]]}{{{{{}[[}{{{{})\\1!iI         !_____fwZZZZOJJJJJJJJJJJYOZZZZmx}{i         
+111111111111111{{{{{{}___}{{{{{{{{{{{{{}(jr1                  (hdddbwJJJJJJJJJJJYwbdddk(            
+}}}}}}}}}}}}}{{{{{{{{}___}{{}}}}}}}}}}}}(rx)                  |okkkkwYYYYYYYYYYYYwkkkka\            
+||||||||||||)}{{{{{{{}]][}{{(|||||||||||{__!                  i\||||fZOOOOOOOOOOOj||||\~            
+jjjjjjjjjjjj|}{{{{{{{{{{{{{{tjjjjjjjjjjr]                           ikdddddddddbd!                  
+jjjjjjjjjjjr|}}}}}}}}}}}}}}{trjjjjjjjjjx[                           +akkkkkkkkkkk~                  
+[[[[[[[[[[[}{(((((((((((((((}}[[[[[[[[[}i                           ;xrrrrrrrrrxrI                  
+            _rjjjjjjjjjjjjjj`                                                                       
+            _rjjjjjjjjjjjjjj^                                                                       
+            i())))))))))))))`                                                                       
+                        
+        </pre>
+        <pre class="ascii name">
+███████╗███╗   ██╗ █████╗ ██╗  ██╗███████╗
+██╔════╝████╗  ██║██╔══██╗██║ ██╔╝██╔════╝
+███████╗██╔██╗ ██║███████║█████╔╝ █████╗  
+╚════██║██║╚██╗██║██╔══██║██╔═██╗ ██╔══╝  
+███████║██║ ╚████║██║  ██║██║  ██╗███████╗
+╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
+                                                      
+                                                                    
+        </pre>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/pages/games/tetris.html">Tetris</a></li>
+            <li><a href="/pages/games/snake.html">Snake</a></li>
+            <li><a href="/pages/games/tictactoe.html">TicTacToe</a></li>
+
+        </ul>
+    </nav>
+
+    <main>
+
+    </main>
+
+    <footer>
+        <h3>Desarrollado por Josias Olguin - 2023/08</h3>
+    </footer>
+
+    <script src="/scripts/snake.js"></script>
+</body>
+
+</html>
